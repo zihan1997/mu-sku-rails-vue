@@ -11,27 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :code %>
-    <%= form.text_field :code %>
+  <div class="mb-3">
+    <%= form.text_field :code, class: 'form-control', placeholder: 'Code'%>
   </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="mb-3">
+    <%= form.text_field :name, class: 'form-control', placeholder: 'Name' %>
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
+  <div class="mb-3">
+    <%= form.text_field :price, class: 'form-control', placeholder: 'Price' %>
   </div>
 
-  <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
+  <div class="mb-3">
+    <%= form.number_field :quantity, class: 'form-control', placeholder: 'Quantity' %>
   </div>
 
+  <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'btn btn-primary'%>
   </div>
 <% end %>
