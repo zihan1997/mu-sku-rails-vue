@@ -5,19 +5,32 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
 
-Product.create(
-  [
-   {
-     code: "123",
-     name: "test",
-     price: 1,
-     quantity: '1'
-   },
-   {
-     code: "153",
-     name: "test1",
-     price: 123,
-     quantity: '11'
-   }
- ])
+def name_gen
+  Faker::Commerce.product_name
+end
+
+def code_gen
+  Faker::Barcode.upc_a
+end
+
+def price_gen
+  Faker::Number.decimal l_digits: 2, r_digits: 2
+end
+
+def quantity_gen
+  Faker::Number.between from: 1, to: 100
+end
+
+products = Array.new
+(0..10).each { |i|
+  products << {
+    code: code_gen,
+    name: name_gen,
+    price: price_gen,
+    quantity: quantity_gen
+  }
+  # puts code_gen
+}
+Product.create!(products)

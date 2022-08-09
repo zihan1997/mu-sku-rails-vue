@@ -14,6 +14,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
@@ -30,15 +31,18 @@
         <p class="alert alert-success"><%= notice %></p>
       <% end %>
       <% if alert %>
-<!--        <p class="alert alert-danger"><%#= alert %></p>-->
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
           <strong><%= alert %></strong>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
       <% end %>
-
+      
       <%= yield %>
     </div>
 
+    <script>
+        let user = LocalStorage.getItem('user')
+        document.getElementById('user-name').innerText = user
+    </script>
   </body>
 </html>
