@@ -3,11 +3,13 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @products = Product.all
+    # @products = Product.all
+    @products = Product.page params[:page]
   end
 
   # GET /products/1 or /products/1.json
   def show
+    @products = Product.paginate(page: params[:page])
   end
 
   # GET /products/new
