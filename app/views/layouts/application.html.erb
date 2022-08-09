@@ -17,17 +17,28 @@
   </head>
 
   <body>
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
 
     <%= render 'home/header' %>
     <div class="container">
 
+
+      <% if notice %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong><%= notice %></strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+<!--        <p class="alert alert-danger"><%#= alert %></p>-->
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong><%= alert %></strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
+
       <%= yield %>
     </div>
+
   </body>
 </html>
