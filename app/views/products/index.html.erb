@@ -21,10 +21,7 @@
         <td><%= product.price %></td>
         <td><%= product.quantity %></td>
         <td><%= product.created_at.strftime('%F') %></td>
-<!--        <td><%#= link_to 'Show', product, class: "btn btn-primary" %></td>-->
-<!--        <td><%#= link_to 'Edit', edit_product_path(product) %></td>-->
-<!--        <td><%#= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-        <td>
+        <td style="text-align: center">
           <div class="btn-group" role="group" aria-label="Basic outlined example">
             <%= link_to 'Show', product, class: "btn btn-outline-primary" %>
             <%= link_to 'Edit', edit_product_path(product), class: 'btn btn-outline-primary' %>
