@@ -1,0 +1,6 @@
+<h1>Search</h1>
+
+<%= form_with(url: products_path(@products), method: :get, local: true) do |form| %>
+  <%= form.select :name, ["Ratings High to Low", "Ratings Low to High"] %>
+  <%#= form.submit "Sort" %>
+<% end%>

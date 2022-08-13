@@ -24,7 +24,7 @@ def quantity_gen
 end
 
 products = Array.new
-(0..10).each { |i|
+(0..50).each { |i|
   products << {
     code: code_gen,
     name: name_gen,
@@ -33,4 +33,7 @@ products = Array.new
   }
   # puts code_gen
 }
+
+Product.delete_all
+
 Product.create!(products)

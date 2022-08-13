@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  before_action :redirect_no_sign
 
   # GET /products or /products.json
   def index
@@ -9,7 +11,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
-    @products = Product.paginate(page: params[:page])
+    # @products = Product.paginate(page: params[:page])
   end
 
   # GET /products/new
@@ -36,6 +38,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def redirect_no_sign
+    redirect_to new_user_session_path unless user_signed_in?
+  end
+
   # PATCH/PUT /products/1 or /products/1.json
   def update
     respond_to do |format|
@@ -60,7 +66,7 @@ class ProductsController < ApplicationController
   end
 
   def search
-
+    Product.find params[:name]
   end
 
   private
