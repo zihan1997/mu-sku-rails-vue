@@ -1,0 +1,18 @@
+<!--sign in check -->
+<% if user_signed_in? %>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0 position-absolute top-5 end-0">
+      <li class="nav-item dropdown">
+        <%= link_to current_user.email, edit_user_registration_path, {:class => "nav-link dropdown-toggle", 'data-bs-toggle' => "dropdown", 'aria-expanded'=>"false", 'role'=>'button'} %>
+        <ul class="dropdown-menu justify-content-end">
+          <li>
+            <%= link_to 'edit', edit_user_registration_path, class: "dropdown-item" %>
+          </li>
+          <li>
+            <%= link_to "sign out", destroy_user_session_path, method: :delete, class: 'dropdown-item btn btn-secondary' %>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+<!--  </div>-->
+<% end %>
